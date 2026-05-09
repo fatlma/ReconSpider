@@ -1,0 +1,103 @@
+[
+  {
+    "type": "robots_txt",
+    "disallowed_paths": ["/admin", "/.env", "/backup", "/api/internal"],
+    "sitemap_refs": ["https://target.com/sitemap.xml"],
+    "raw": "User-agent: *\nDisallow: /admin\nDisallow: /.env\nDisallow: /backup\nDisallow: /api/internal\nSitemap: https://target.com/sitemap.xml\n"
+  },
+  {
+    "type": "sitemap",
+    "sitemap_urls": [
+      "https://target.com/",
+      "https://target.com/about",
+      "https://target.com/pricing",
+      "https://target.com/contact",
+      "https://target.com/blog"
+    ],
+    "total_urls": 5
+  },
+  {
+    "type": "interesting_path",
+    "url": "https://target.com/admin",
+    "path": "/admin",
+    "status": 200
+  },
+  {
+    "type": "interesting_path",
+    "url": "https://target.com/swagger",
+    "path": "/swagger",
+    "status": 200
+  },
+  {
+    "type": "page",
+    "url": "https://target.com/",
+    "status": 200,
+    "meta": {
+      "title": "Target Corp — Home",
+      "server": "nginx/1.18.0",
+      "content_type": "text/html; charset=utf-8",
+      "page_hash": "a3f1bc9d8e721045cbdf7a3219e04b5c"
+    },
+    "emails": ["admin@target.com", "support@target.com"],
+    "forms": [
+      {
+        "action": "/login",
+        "method": "POST",
+        "inputs": [
+          {"name": "username", "type": "text"},
+          {"name": "password", "type": "password"},
+          {"name": "_csrf",    "type": "hidden"}
+        ]
+      }
+    ],
+    "comments": ["TODO: remove /api/debug before production deploy"],
+    "internal_links": [
+      "https://target.com/about",
+      "https://target.com/dashboard",
+      "https://target.com/api/health"
+    ],
+    "external_links": ["https://fonts.googleapis.com"],
+    "js_files": [
+      "https://target.com/static/app.bundle.js",
+      "https://target.com/static/vendor.js"
+    ],
+    "images": ["https://target.com/static/logo.png"],
+    "external_files": ["https://target.com/downloads/brochure.pdf"],
+    "detected_technologies": ["React", "Bootstrap"],
+    "security_headers": {
+      "Content-Security-Policy":   null,
+      "X-Frame-Options":           "SAMEORIGIN",
+      "X-Content-Type-Options":    "nosniff",
+      "Strict-Transport-Security": null,
+      "Referrer-Policy":           null,
+      "X-Powered-By":              "Express"
+    }
+  },
+  {
+    "type": "js_analysis",
+    "js_url": "https://target.com/static/app.bundle.js",
+    "relative_endpoints": [
+      "/api/v2/users",
+      "/api/v2/admin/export",
+      "/api/v2/token/refresh"
+    ],
+    "absolute_endpoints": [
+      "https://api.internal.target.com/graphql",
+      "https://s3.amazonaws.com/target-prod-uploads"
+    ],
+    "possible_secrets": [
+      {
+        "type": "AWS Access Key",
+        "match": "AKIAIOSFODNN7EXAMPLE",
+        "line": 142
+      },
+      {
+        "type": "JWT Token",
+        "match": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIn0.abc",
+        "line": 287
+      }
+    ],
+    "sourcemap_references": ["app.bundle.js.map"],
+    "size_bytes": 482310
+  }
+]
