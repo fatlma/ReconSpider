@@ -1,4 +1,4 @@
-# 🕷️ ReconSpider Pro 
+# 🕷️ ReconSpider  
 
 > Passive web reconnaissance tool for bug bounty & security research.  
 > Single command · Live output · JS secret detection · Tech fingerprinting
